@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>宠伴高铁 - 我的订单</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        .slide-up {
+            transition: transform 0.3s ease-out;
+        }
+        .slide-up.hidden {
+            transform: translateY(100%);
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans text-gray-800">
+    <div class="max-w-md mx-auto bg-white min-h-screen relative">
+        <!-- 底部导航栏 -->
+        <div class="fixed bottom-0 left-0 right-0 max-w-md mx-auto bg-white border-t border-gray-200 flex justify-around items-center py-2 px-4 z-10">
+            <div class="flex flex-col items-center">
+                <span class="material-icons text-gray-400">home</span>
+                <span class="text-xs text-gray-400">首页</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="material-icons text-gray-400">search</span>
+                <span class="text-xs text-gray-400">查询</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="material-icons text-blue-600">receipt_long</span>
+                <span class="text-xs text-blue-600">订单</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="material-icons text-gray-400">pets</span>
+                <span class="text-xs text-gray-400">宠物</span>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="material-icons text-gray-400">person</span>
+                <span class="text-xs text-gray-400">我的</span>
+            </div>
+        </div>
+
+        <!-- 主页面 - 订单列表 -->
+        <div id="orders-list-page" class="pb-16">
+            <!-- 顶部导航栏 -->
+            <header class="bg-blue-600 text-white p-4 sticky top-0 z-10">
+                <h1 class="text-xl font-semibold text-center">我的订单</h1>
+            </header>
+
+            <!-- 订单类型选择 -->
+            <div class="flex border-b border-gray-200 bg-white sticky top-16 z-10">
+                <button class="flex-1 py-3 text-blue-600 border-b-2 border-blue-600 font-medium">全部</button>
+                <button class="flex-1 py-3 text-gray-500">待付款</button>
+                <button class="flex-1 py-3 text-gray-500">待出行</button>
+                <button class="flex-1 py-3 text-gray-500">已完成</button>
+            </div>
+
+            <!-- 搜索框 -->
+            <div class="p-3 bg-white border-b border-gray-200">
+                <div class="flex items-center bg-gray-100 rounded-full px-4 py-2">
+                    <span class="material-icons text-gray-400 mr-2">search</span>
+                    <input type="text" placeholder="搜索订单" class="bg-transparent w-full outline-none text-sm">
+                </div>
+            </div>
+
+            <!-- 订单列表 -->
+            <div class="p-3 space-y-3">
+                <!-- 订单1 - 待出行 -->
+                <div class="bg-white rounded-lg shadow-sm overflow-hidden" id="order-1">
+                    <div class="p-3 border-b border-gray-100 flex justify-between items-center">
+                        <div class="flex items-center">
+                            <span class="material-icons text-blue-600 mr-2">train</span>
+                            <span class="font-medium">高铁订单</span>
+                        </div>
+                        <span class="text-orange-500 font-medium">待出行</span>
+                    </div>
+                    <div class="p-3">
+                        <div class="flex justify-between mb-2">
+                            <div>
+                                <span class="text-lg font-bold">北京 → 上海</span>
+                            </div>
+                            <div class="text-right">
+                                <span class="text-sm text-gray-500">G101</span>
+                            </div>
+                        </div>
+                        <div class="flex justify-between text-sm text-gray-500 mb-3">
+                            <div>2023年6月20日 07:00出发</div>
+                            <div>1人1宠</div>
+                        </div>
+                        <div class="flex items-center">
+                            <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=60&q=80" class="w-8 h-8 rounded-full object-cover mr-2">
+                            <span class="text-sm">豆豆 (柯基犬)</span>
+                        </div>
+                    </div>
+                    <div class="p-3 bg-gray-50 flex justify-between items-center">
+                        <div>
+                            <span class="text-gray-500 text-sm">总价:</span>
+                            <span class="text-red-600 font-bold">¥302</span>
+                        </div>
+                        <div class="flex space-x-2">
+                            <button class="px-4 py-1.5 border border-gray-300 rounded-full text-sm">退票/改签</button>
+                            <button class="px-4 py-1.5 bg-blue-600 text-white rounded-full text-sm">查看详情</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 订单2 - 已完成 -->
+                <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                    <div class="p-3 border-b border-gray-100 flex justify-between items-center">
+                        <div class="flex items-center">
+                            <span class="material-icons text-blue-600 mr-2">train</span>
+                            <span class="font-medium">高铁订单</span>
+                        </div>
+                        <span class="text-gray-500 font-medium">已完成</span>
+                    </div>
+                    <div class="p-3">
+                        <div class="flex justify-between mb-2">
+                            <div>
+                                <span class="text-lg font-bold">上海 → 杭州</span>
+                            </div>
+                            <div class="text-right">
+                                <span class="text-sm text-gray-500">G56</span>
+                            </div>
+                        </div>
+                        <div class="flex justify-between text-sm text-gray-500 mb-3">
+                            <div>2023年6月10日 14:30出发</div>
+                            <div>1人1宠</div>
+                        </div>
+                        <div class="flex items-center">
+                            <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=60&q=80" class="w-8 h-8 rounded-full object-cover mr-2">
+                            <span class="text-sm">豆豆 (柯基犬)</span>
+                        </div>
+                    </div>
+                    <div class="p-3 bg-gray-50 flex justify-between items-center">
+                        <div>
+                            <span class="text-gray-500 text-sm">总价:</span>
+                            <span class="text-gray-600 font-bold">¥112</span>
+                        </div>
+                        <div class="flex space-x-2">
+                            <button class="px-4 py-1.5 border border-gray-300 rounded-full text-sm">评价</button>
+                            <button class="px-4 py-1.5 bg-blue-600 text-white rounded-full text-sm">查看详情</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 订单3 - 待付款 -->
+                <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                    <div class="p-3 border-b border-gray-100 flex justify-between items-center">
+                        <div class="flex items-center">
+                            <span class="material-icons text-blue-600 mr-2">train</span>
+                            <span class="font-medium">高铁订单</span>
+                        </div>
+                        <span class="text-red-500 font-medium">待付款</span>
+                    </div>
+                    <div class="p-3">
+                        <div class="flex justify-between mb-2">
+                            <div>
+                                <span class="text-lg font-bold">广州 → 深圳</span>
+                            </div>
+                            <div class="text-right">
+                                <span class="text-sm text-gray-500">G6312</span>
+                            </div>
+                        </div>
+                        <div class="flex justify-between text-sm text-gray-500 mb-3">
+                            <div>2023年6月25日 09:15出发</div>
+                            <div>1人1宠</div>
+                        </div>
+                        <div class="flex items-center">
+                            <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=60&q=80" class="w-8 h-8 rounded-full object-cover mr-2">
+                            <span class="text-sm">咪咪 (英短猫)</span>
+                        </div>
+                    </div>
+                    <div class="p-3 bg-gray-50 flex justify-between items-center">
+                        <div>
+                            <span class="text-gray-500 text-sm">总价:</span>
+                            <span class="text-red-600 font-bold">¥86</span>
+                        </div>
+                        <div class="flex space-x-2">
+                            <button class="px-4 py-1.5 border border-gray-300 rounded-full text-sm">取消</button>
+                            <button class="px-4 py-1.5 bg-red-600 text-white rounded-full text-sm">去支付</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 订单4 - 已完成 -->
+                <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                    <div class="p-3 border-b border-gray-100 flex justify-between items-center">
+                        <div class="flex items-center">
+                            <span class="material-icons text-blue-600 mr-2">train</span>
+                            <span class="font-medium">高铁订单</span>
+                        </div>
+                        <span class="text-gray-500 font-medium">已完成</span>
+                    </div>
+                    <div class="p-3">
+                        <div class="flex justify-between mb-2">
+                            <div>
+                                <span class="text-lg font-bold">北京 → 天津</span>
+                            </div>
+                            <div class="text-right">
+                                <span class="text-sm text-gray-500">G25</span>
+                            </div>
+                        </div>
+                        <div class="flex justify-between text-sm text-gray-500 mb-3">
+                            <div>2023年5月28日 10:00出发</div>
+                            <div>1人1宠</div>
+                        </div>
+                        <div class="flex items-center">
+                            <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=60&q=80" class="w-8 h-8 rounded-full object-cover mr-2">
+                            <span class="text-sm">豆豆 (柯基犬)</span>
+                        </div>
+                    </div>
+                    <div class="p-3 bg-gray-50 flex justify-between items-center">
+                        <div>
+                            <span class="text-gray-500 text-sm">总价:</span>
+                            <span class="text-gray-600 font-bold">¥92</span>
+                        </div>
+                        <div class="flex space-x-2">
+                            <button class="px-4 py-1.5 border border-gray-300 rounded-full text-sm">再次购买</button>
+                            <button class="px-4 py-1.5 bg-blue-600 text-white rounded-full text-sm">查看详情</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 订单详情页面 -->
+        <div id="order-detail-page" class="fixed inset-0 bg-white z-20 transform translate-x-full transition-transform duration-300 pb-16">
+            <!-- 顶部导航栏 -->
+            <header class="bg-blue-600 text-white p-4 flex items-center sticky top-0 z-10">
+                <button id="back-to-list" class="material-icons mr-2">arrow_back</button>
+                <h1 class="text-xl font-semibold">订单详情</h1>
+            </header>
+
+            <!-- 订单状态 -->
+            <div class="bg-blue-600 text-white p-4">
+                <div class="flex items-center mb-2">
+                    <span class="material-icons mr-2">check_circle</span>
+                    <span class="text-lg font-medium">订单已确认</span>
+                </div>
+                <p class="text-blue-100">您的行程将于2天后开始，请提前做好准备</p>
+            </div>
+
+            <!-- 订单进度 -->
+            <div class="p-4 bg-white mb-3">
+                <h3 class="font-medium mb-4">订单进度</h3>
+                <div class="relative">
+                    <!-- 进度线 -->
+                    <div class="absolute left-4 top-0 bottom-0 w-0.5 bg-gray-200 z-0"></div>
+                    
+                    <!-- 进度点1 -->
+                    <div class="relative z-10 flex mb-6">
+                        <div class="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center">
+                            <span class="material-icons text-sm">check</span>
+                        </div>
+                        <div class="ml-4">
+                            <div class="font-medium">订单已提交</div>
+                            <div class="text-sm text-gray-500">2023-06-18 14:30:25</div>
+                        </div>
+                    </div>
+                    
+                    <!-- 进度点2 -->
+                    <div class="relative z-10 flex mb-6">
+                        <div class="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center">
+                            <span class="material-icons text-sm">check</span>
+                        </div>
+                        <div class="ml-4">
+                            <div class="font-medium">支付成功</div>
+                            <div class="text-sm text-gray-500">2023-06-18 14:31:05</div>
+                        </div>
+                    </div>
+                    
+                    <!-- 进度点3 -->
+                    <div class="relative z-10 flex mb-6">
+                        <div class="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center">
+                            <span class="material-icons text-sm">check</span>
+                        </div>
+                        <div class="ml-4">
+                            <div class="font-medium">订单已确认</div>
+                            <div class="text-sm text-gray-500">2023-06-18 14:35:42</div>
+                        </div>
+                    </div>
+                    
+                    <!-- 进度点4 -->
+                    <div class="relative z-10 flex">
+                        <div class="w-8 h-8 rounded-full bg-gray-200 text-gray-500 flex items-center justify-center">
+                            <span class="material-icons text-sm">schedule</span>
+                        </div>
+                        <div class="ml-4">
+                            <div class="font-medium text-gray-500">行程开始</div>
+                            <div class="text-sm text-gray-500">2023-06-20 07:00:00</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 行程信息 -->
+            <div class="p-4 bg-white mb-3">
+                <h3 class="font-medium mb-3">行程信息</h3>
+                <div class="flex justify-between items-center mb-4">
+                    <div>
+                        <div class="text-xl font-bold">北京</div>
+                        <div class="text-sm text-gray-500">北京站</div>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <span class="material-icons text-blue-600">arrow_forward</span>
+                        <span class="text-xs text-gray-500">G101</span>
+                    </div>
+                    <div>
+                        <div class="text-xl font-bold">上海</div>
+                        <div class="text-sm text-gray-500">上海虹桥站</div>
+                    </div>
+                </div>
+                <div class="flex justify-between text-sm text-gray-500 border-t border-gray-100 pt-3">
+                    <div>出发时间: 2023-06-20 07:00</div>
+                    <div>到达时间: 2023-06-20 11:28</div>
+                </div>
+            </div>
+
+            <!-- 乘车人信息 -->
+            <div class="p-4 bg-white mb-3">
+                <h3 class="font-medium mb-3">乘车人信息</h3>
+                <div class="flex justify-between mb-2">
+                    <div>
+                        <div class="font-medium">张三</div>
+                        <div class="text-sm text-gray-500">身份证: 1101********1234</div>
+                    </div>
+                    <div class="text-sm text-blue-600">二等座 14车12A号</div>
+                </div>
+            </div>
+
+            <!-- 宠物信息 -->
+            <div class="p-4 bg-white mb-3">
+                <h3 class="font-medium mb-3">宠物信息</h3>
+                <div class="flex items-center">
+                    <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=80&q=80" class="w-12 h-12 rounded-full object-cover mr-3">
+                    <div>
+                        <div class="font-medium">豆豆</div>
+                        <div class="text-sm text-gray-500">柯基犬 | 3岁 | 12.5kg</div>
+                    </div>
+                </div>
+                <div class="mt-3 p-3 bg-yellow-50 rounded-lg text-sm">
+                    <div class="flex items-start">
+                        <span class="material-icons text-yellow-600 mr-2 text-sm">info</span>
+                        <div>
+                            <p class="text-yellow-800">宠物乘车注意事项:</p>
+                            <ul class="list-disc pl-5 mt-1 text-gray-700 space-y-1">
+                                <li>请提前30分钟到达车站办理宠物托运手续</li>
+                                <li>宠物必须全程置于宠物箱内</li>
+                                <li>请携带宠物健康证明和疫苗接种证明</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 订单信息 -->
+            <div class="p-4 bg-white mb-3">
+                <h3 class="font-medium mb-3">订单信息</h3>
+                <div class="space-y-2 text-sm">
+                    <div class="flex justify-between">
+                        <span class="text-gray-500">订单编号</span>
+                        <span>PT2023061814302501</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-gray-500">下单时间</span>
+                        <span>2023-06-18 14:30:25</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-gray-500">支付方式</span>
+                        <span>微信支付</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-gray-500">车票金额</span>
+                        <span>¥302.00</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-gray-500">宠物托运费</span>
+                        <span>¥0.00</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-gray-500">保险费用</span>
+                        <span>¥0.00</span>
+                    </div>
+                    <div class="flex justify-between font-medium">
+                        <span>总计</span>
+                        <span class="text-red-600">¥302.00</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 底部按钮 -->
+            <div class="p-4 bg-white sticky bottom-16">
+                <div class="flex space-x-3">
+                    <button class="flex-1 py-2.5 border border-gray-300 rounded-lg text-center flex items-center justify-center">
+                        <span class="material-icons text-sm mr-1">support_agent</span>
+                        <span>联系客服</span>
+                    </button>
+                    <button class="flex-1 py-2.5 border border-gray-300 rounded-lg text-center">退票/改签</button>
+                    <button class="flex-1 py-2.5 bg-blue-600 text-white rounded-lg text-center" id="show-qr-code">查看车票</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 车票二维码弹窗 -->
+        <div id="qr-code-modal" class="fixed inset-0 bg-black bg-opacity-50 z-30 flex items-center justify-center hidden">
+            <div class="bg-white rounded-lg w-4/5 p-5">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="font-bold text-lg">电子车票</h3>
+                    <button id="close-qr-modal" class="material-icons">close</button>
+                </div>
+                <div class="text-center mb-4">
+                    <p class="text-sm text-gray-500 mb-2">请在检票口出示此二维码</p>
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=PT2023061814302501" class="w-48 h-48 mx-auto">
+                    <p class="mt-2 text-xs text-gray-400">PT2023061814302501</p>
+                </div>
+                <div class="bg-blue-50 p-3 rounded-lg text-sm text-blue-800">
+                    <p class="flex items-center">
+                        <span class="material-icons text-blue-600 mr-1 text-sm">info</span>
+                        检票口开放时间: 06:30-06:50
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            // 订单详情页面切换
+            document.getElementById('order-1').addEventListener('click', function() {
+                document.getElementById('order-detail-page').classList.remove('translate-x-full');
+            });
+
+            document.getElementById('back-to-list').addEventListener('click', function() {
+                document.getElementById('order-detail-page').classList.add('translate-x-full');
+            });
+
+            // 二维码弹窗
+            document.getElementById('show-qr-code').addEventListener('click', function() {
+                document.getElementById('qr-code-modal').classList.remove('hidden');
+            });
+
+            document.getElementById('close-qr-modal').addEventListener('click', function() {
+                document.getElementById('qr-code-modal').classList.add('hidden');
+            });
+        </script>
+    </div>
+</body>
+</html> 
