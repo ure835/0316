@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>宠伴高铁 - 携宠出行更便捷</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body class="bg-gray-100 font-sans">
+    <div class="max-w-md mx-auto bg-white min-h-screen">
+        <!-- 导航栏 -->
+        <header class="bg-blue-600 text-white p-4 flex items-center justify-between">
+            <div class="flex items-center">
+                <span class="material-icons mr-2">arrow_back</span>
+                <h1 class="text-xl font-semibold">订票</h1>
+            </div>
+            <span class="material-icons">help_outline</span>
+        </header>
+
+        <!-- 行程信息 -->
+        <div class="p-4 bg-blue-500 text-white">
+            <div class="flex justify-between items-center">
+                <div>
+                    <h2 class="text-2xl font-bold">北京</h2>
+                    <p class="text-sm">北京站</p>
+                </div>
+                <span class="material-icons text-3xl">arrow_forward</span>
+                <div>
+                    <h2 class="text-2xl font-bold">上海</h2>
+                    <p class="text-sm">上海虹桥站</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 日期选择 -->
+        <div class="p-4 border-b">
+            <h3 class="text-gray-500 mb-2">出发日期</h3>
+            <div class="flex overflow-x-auto py-2 space-x-3">
+                <div class="flex-shrink-0 w-16 h-20 bg-blue-600 text-white rounded-lg flex flex-col items-center justify-center">
+                    <span class="text-sm">今天</span>
+                    <span class="font-bold">6/15</span>
+                    <span class="text-xs">周四</span>
+                </div>
+                <div class="flex-shrink-0 w-16 h-20 bg-white border border-gray-300 rounded-lg flex flex-col items-center justify-center">
+                    <span class="text-sm">明天</span>
+                    <span class="font-bold">6/16</span>
+                    <span class="text-xs">周五</span>
+                </div>
+                <div class="flex-shrink-0 w-16 h-20 bg-white border border-gray-300 rounded-lg flex flex-col items-center justify-center">
+                    <span class="text-sm"></span>
+                    <span class="font-bold">6/17</span>
+                    <span class="text-xs">周六</span>
+                </div>
+                <div class="flex-shrink-0 w-16 h-20 bg-white border border-gray-300 rounded-lg flex flex-col items-center justify-center">
+                    <span class="text-sm"></span>
+                    <span class="font-bold">6/18</span>
+                    <span class="text-xs">周日</span>
+                </div>
+                <div class="flex-shrink-0 w-16 h-20 bg-white border border-gray-300 rounded-lg flex flex-col items-center justify-center">
+                    <span class="text-sm"></span>
+                    <span class="font-bold">6/19</span>
+                    <span class="text-xs">周一</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 车次选择 -->
+        <div class="p-4 border-b">
+            <h3 class="text-gray-500 mb-2">选择车次</h3>
+            <div class="bg-white rounded-lg border border-gray-200 mb-3">
+                <div class="p-3 flex justify-between items-center border-b border-gray-100">
+                    <div>
+                        <span class="text-xl font-bold text-blue-600">G101</span>
+                        <span class="text-gray-500 text-sm ml-2">允许携带宠物</span>
+                    </div>
+                    <div class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">
+                        准点率高
+                    </div>
+                </div>
+                <div class="p-3 flex justify-between items-center">
+                    <div class="text-center">
+                        <div class="text-xl font-bold">07:00</div>
+                        <div class="text-sm text-gray-500">北京站</div>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <div class="text-sm text-gray-500">4h28m</div>
+                        <div class="w-20 h-0.5 bg-gray-300 relative">
+                            <div class="absolute -top-1.5 left-0 w-2 h-2 rounded-full bg-blue-600"></div>
+                            <div class="absolute -top-1.5 right-0 w-2 h-2 rounded-full bg-blue-600"></div>
+                        </div>
+                        <div class="text-xs text-gray-400">直达</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-xl font-bold">11:28</div>
+                        <div class="text-sm text-gray-500">上海虹桥站</div>
+                    </div>
+                </div>
+                <div class="p-3 border-t border-gray-100 flex justify-between">
+                    <div class="flex space-x-2">
+                        <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded">一等座 ¥553</span>
+                        <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded">二等座 ¥302</span>
+                    </div>
+                    <button class="bg-blue-600 text-white px-4 py-1 rounded text-sm">选择</button>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg border border-gray-200 mb-3">
+                <div class="p-3 flex justify-between items-center border-b border-gray-100">
+                    <div>
+                        <span class="text-xl font-bold text-blue-600">G105</span>
+                        <span class="text-gray-500 text-sm ml-2">允许携带宠物</span>
+                    </div>
+                </div>
+                <div class="p-3 flex justify-between items-center">
+                    <div class="text-center">
+                        <div class="text-xl font-bold">09:15</div>
+                        <div class="text-sm text-gray-500">北京站</div>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <div class="text-sm text-gray-500">4h35m</div>
+                        <div class="w-20 h-0.5 bg-gray-300 relative">
+                            <div class="absolute -top-1.5 left-0 w-2 h-2 rounded-full bg-blue-600"></div>
+                            <div class="absolute -top-1.5 right-0 w-2 h-2 rounded-full bg-blue-600"></div>
+                        </div>
+                        <div class="text-xs text-gray-400">直达</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-xl font-bold">13:50</div>
+                        <div class="text-sm text-gray-500">上海虹桥站</div>
+                    </div>
+                </div>
+                <div class="p-3 border-t border-gray-100 flex justify-between">
+                    <div class="flex space-x-2">
+                        <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded">一等座 ¥553</span>
+                        <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded">二等座 ¥302</span>
+                    </div>
+                    <button class="bg-blue-600 text-white px-4 py-1 rounded text-sm">选择</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 座位选择 -->
+        <div class="p-4 border-b">
+            <h3 class="text-gray-500 mb-2">座位选择</h3>
+            <div class="bg-white rounded-lg border border-gray-200 p-4">
+                <div class="flex justify-between mb-4">
+                    <div class="flex items-center">
+                        <div class="w-5 h-5 rounded-full bg-blue-600 mr-2"></div>
+                        <span>二等座</span>
+                    </div>
+                    <span class="text-blue-600 font-bold">¥302</span>
+                </div>
+                <div class="flex space-x-3 mb-4">
+                    <button class="flex-1 py-2 border border-gray-300 rounded-lg text-center">靠窗</button>
+                    <button class="flex-1 py-2 bg-blue-600 text-white rounded-lg text-center">中间</button>
+                    <button class="flex-1 py-2 border border-gray-300 rounded-lg text-center">靠过道</button>
+                </div>
+                <div class="text-xs text-gray-500">
+                    <p>* 宠物乘车需选择靠窗或靠过道座位</p>
+                    <p>* 宠物箱需放置于座位下方</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 乘车人选择 -->
+        <div class="p-4 border-b">
+            <div class="flex justify-between items-center mb-2">
+                <h3 class="text-gray-500">乘车人</h3>
+                <button class="text-blue-600 text-sm flex items-center">
+                    <span class="material-icons text-sm mr-1">add</span>添加
+                </button>
+            </div>
+            <div class="bg-white rounded-lg border border-gray-200 p-3 mb-3">
+                <div class="flex items-center">
+                    <input type="checkbox" class="w-5 h-5 mr-3" checked>
+                    <div>
+                        <div class="font-medium">张三</div>
+                        <div class="text-sm text-gray-500">身份证 1101********1234</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 宠物选择 -->
+        <div class="p-4 border-b">
+            <div class="flex justify-between items-center mb-2">
+                <h3 class="text-gray-500">乘车宠物</h3>
+                <button class="text-blue-600 text-sm flex items-center">
+                    <span class="material-icons text-sm mr-1">add</span>添加
+                </button>
+            </div>
+            <div class="bg-white rounded-lg border border-gray-200 p-3 mb-3" id="pet-selection">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center">
+                        <input type="checkbox" class="w-5 h-5 mr-3" checked>
+                        <div class="flex items-center">
+                            <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" class="w-12 h-12 rounded-full object-cover mr-3">
+                            <div>
+                                <div class="font-medium">豆豆</div>
+                                <div class="text-sm text-gray-500">柯基犬 | 3岁</div>
+                            </div>
+                        </div>
+                    </div>
+                    <span class="material-icons text-gray-400">chevron_right</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 底部确认 -->
+        <div class="p-4 bg-white sticky bottom-0 border-t border-gray-200">
+            <div class="flex justify-between items-center mb-3">
+                <div>
+                    <span class="text-gray-500">总计:</span>
+                    <span class="text-xl font-bold text-red-600">¥302</span>
+                </div>
+                <div class="text-sm text-gray-500">
+                    1人 + 1宠
+                </div>
+            </div>
+            <button class="w-full bg-blue-600 text-white py-3 rounded-lg font-medium">
+                提交订单
+            </button>
+        </div>
+
+        <!-- 宠物详情页面 (默认隐藏) -->
+        <div id="pet-detail" class="fixed inset-0 bg-white z-10 transform translate-y-full transition-transform duration-300">
+            <header class="bg-blue-600 text-white p-4 flex items-center justify-between">
+                <div class="flex items-center">
+                    <span class="material-icons mr-2" id="back-to-main">arrow_back</span>
+                    <h1 class="text-xl font-semibold">宠物信息</h1>
+                </div>
+                <span class="material-icons">edit</span>
+            </header>
+
+            <div class="p-4">
+                <div class="flex items-center mb-6">
+                    <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=150&q=80" class="w-20 h-20 rounded-full object-cover mr-4">
+                    <div>
+                        <h2 class="text-xl font-bold">豆豆</h2>
+                        <p class="text-gray-500">柯基犬 | 3岁 | 公</p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg border border-gray-200 p-4 mb-4">
+                    <h3 class="font-medium mb-3">基本信息</h3>
+                    <div class="grid grid-cols-2 gap-3">
+                        <div>
+                            <p class="text-gray-500 text-sm">宠物类型</p>
+                            <p>犬类</p>
+                        </div>
+                        <div>
+                            <p class="text-gray-500 text-sm">品种</p>
+                            <p>威尔士柯基犬</p>
+                        </div>
+                        <div>
+                            <p class="text-gray-500 text-sm">年龄</p>
+                            <p>3岁2个月</p>
+                        </div>
+                        <div>
+                            <p class="text-gray-500 text-sm">体重</p>
+                            <p>12.5kg</p>
+                        </div>
+                        <div>
+                            <p class="text-gray-500 text-sm">毛色</p>
+                            <p>黄白色</p>
+                        </div>
+                        <div>
+                            <p class="text-gray-500 text-sm">芯片号</p>
+                            <p>CN1234567890</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg border border-gray-200 p-4 mb-4">
+                    <h3 class="font-medium mb-3">健康状态</h3>
+                    <div class="mb-3">
+                        <div class="flex justify-between items-center mb-1">
+                            <p class="text-gray-500 text-sm">疫苗接种</p>
+                            <span class="px-2 py-0.5 bg-green-100 text-green-800 text-xs rounded-full">已完成</span>
+                        </div>
+                        <p class="text-sm">最近接种: 2023年5月10日</p>
+                    </div>
+                    <div class="mb-3">
+                        <div class="flex justify-between items-center mb-1">
+                            <p class="text-gray-500 text-sm">体检状态</p>
+                            <span class="px-2 py-0.5 bg-green-100 text-green-800 text-xs rounded-full">健康</span>
+                        </div>
+                        <p class="text-sm">最近体检: 2023年5月15日</p>
+                    </div>
+                    <div>
+                        <div class="flex justify-between items-center mb-1">
+                            <p class="text-gray-500 text-sm">驱虫情况</p>
+                            <span class="px-2 py-0.5 bg-green-100 text-green-800 text-xs rounded-full">已完成</span>
+                        </div>
+                        <p class="text-sm">最近驱虫: 2023年6月1日</p>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg border border-gray-200 p-4 mb-4">
+                    <h3 class="font-medium mb-3">出行信息</h3>
+                    <div class="mb-3">
+                        <p class="text-gray-500 text-sm mb-1">宠物箱尺寸</p>
+                        <p>长45cm × 宽35cm × 高25cm</p>
+                    </div>
+                    <div>
+                        <p class="text-gray-500 text-sm mb-1">特殊需求</p>
+                        <p>怕生，需要安静环境</p>
+                    </div>
+                </div>
+
+                <button class="w-full bg-blue-600 text-white py-3 rounded-lg font-medium mb-4">
+                    确认选择
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 宠物选择点击事件
+        document.getElementById('pet-selection').addEventListener('click', function() {
+            document.getElementById('pet-detail').classList.remove('translate-y-full');
+        });
+
+        // 返回按钮点击事件
+        document.getElementById('back-to-main').addEventListener('click', function() {
+            document.getElementById('pet-detail').classList.add('translate-y-full');
+        });
+    </script>
+</body>
+</html>
